@@ -21,7 +21,7 @@ def train_model(X_train, y_train):
     """
     # TODO: implement the function
 
-    model = LogisticRegression()
+    model = LogisticRegression(max_iter=1000)
     model.fit(X_train, y_train)
 
     return model
@@ -81,11 +81,13 @@ def save_model(model, path):
     # TODO: implement the function
     with open(path, "wb") as file:
         pickle.dump(model, file)
+    print(f"Model saved to {path}")
 
 
 def load_model(path):
     """ Loads pickle file from `path` and returns it."""
     # TODO: implement the function
+    print(f"Loading model from {path}")
     with open(path, "rb") as file:
         model = pickle.load(file)
 
